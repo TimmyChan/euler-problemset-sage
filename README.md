@@ -10,4 +10,4 @@ _There is nothing quite like that "Aha!" moment when you finally beat a problem 
 
 [LaTeX](https://www.latex-project.org/) elements created using [Code Cogs](https://latex.codecogs.com/).
 
-![Contents](https://github.com/TimmyChan/euler-problemset-sage/blob/0b8211770d264ab6f6418e9d633f02abee815cd7/Euler%20Problem%20Set.ipynb)
+![Contents](https://raw.githubusercontent.com/TimmyChan/euler-problemset-sage/0b8211770d264ab6f6418e9d633f02abee815cd7/Euler%20Problem%20Set.ipynb)
