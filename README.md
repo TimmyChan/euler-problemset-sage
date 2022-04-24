@@ -1,11 +1,25 @@
-This [SAGEmath](https://www.sagemath.org/) Jupyter practice notebook exists as a portfolio component to demonstrate mastery to employers.
+# Euler Problemset using SAGEMath
 
-If you are solving the problems for the sake of learning and found yourself here for some reason, please refrain from simply doing copy pasta.
+This [SAGEmath](https://www.sagemath.org/) (Python) Jupyter practice notebook exists as a portfolio component to demonstrate mastery to employers. Since I'm a big fan of SAGEmath, this is also somewhat of a case study for why SAGEmath make a lot of relatively complex mathematical questions simple to optimize. 
 
-From the [Project Euler](https://projecteuler.net/) page:
-_There is nothing quite like that "Aha!" moment when you finally beat a problem which you have been working on for some time. It is often through the best of intentions in wishing to share our insights so that others can enjoy that moment too. Sadly, that will rarely be the case for your readers. Real learning is an active process and seeing how it is done is a long way from experiencing that epiphany of discovery. Please do not deny others what you have so richly valued yourself._
+If you are solving the problems for the sake of learning and found yourself here, please read this excerpt from the [Project Euler](https://projecteuler.net/) page: 
+> _There is nothing quite like that "Aha!" moment when you finally beat a problem which you have been working on for some time. It is often through the best of intentions in wishing to share our insights so that others can enjoy that moment too. Sadly, that will rarely be the case for your readers. Real learning is an active process and seeing how it is done is a long way from experiencing that epiphany of discovery. Please do not deny others what you have so richly valued yourself._
 
-[LaTeX](https://www.latex-project.org/) elements created using [Code Cogs](https://latex.codecogs.com/).
+## Why SAGEmath for Project Euler Problems
+
+The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already, SAGEmath is appropriate because:
+
+0. **Accessibility**: Sagemath is _FOSS_ alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.
+1. **Ease of Use**:
+   - [Linux installation](https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux) is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.
+   - [Jupyter integration] as demonstrated in this project. 
+   - [CoCalc](https://cocalc.com/features/sage) allows for collaborative computational work (freemium).
+2. **Highly Optimized**: "SageMath allows those students who are more interested in math than `malloc()` to spend more time thinking about math and less time figuring out why their code segfaults."
+
+
+## Dev Notes:
+- `README.md` is the output of the `euler-problemset-sage.ipynb` file.
+- [LaTeX](https://www.latex-project.org/) elements created using [Code Cogs](https://latex.codecogs.com/).
 
 1. If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.
 
