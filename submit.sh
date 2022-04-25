@@ -1,15 +1,15 @@
 #!/bin/bash
 
-message_flag=''
+message_flag=false
 
-while getopts :m: flag
+while getopts "m:" flag
 do
     case "${flag}" in
-        m) COMMENT=${OPTARG}; message_flag='true' ;;
+        m) COMMENT=${OPTARG}; message_flag=true ;;
     esac
 done
 
-if  [$message_flag -eq 'true' ]; then
+if  [ !${message_flag} ]; then
     echo "Enter commit message, followed by [ENTER]: "
     read COMMENT
 fi
