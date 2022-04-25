@@ -1,4 +1,7 @@
-# Euler Problemset using SAGEMath
+# Project Euler Problemset 
+## With SAGEMath and Jupyter
+
+Editor: [Timmy L. Chan](https://github.com/TimmyChan)
 
 This [SAGEmath](https://www.sagemath.org/) (Python) Jupyter practice notebook exists as a portfolio component to demonstrate mastery to employers. Since I'm a big fan of SAGEmath, this is also somewhat of a case study for why SAGEmath make a lot of relatively complex mathematical questions simple to optimize. 
 
@@ -8,13 +11,17 @@ If you are solving the problems for the sake of learning and found yourself here
 
 ### Why SAGEmath for Project Euler Problems
 
-The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already, SAGEmath is appropriate because:
+The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already. 
+
+SAGEmath is appropriate because:
 
 0. **Accessibility**: Sagemath is _FOSS_ alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.
+
 1. **Ease of Use**:
    - [Linux installation](https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux) is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.
    - [Jupyter integration] as demonstrated in this project. 
    - [CoCalc](https://cocalc.com/features/sage) allows for collaborative computational work (freemium).
+   
 2. **Highly Optimized**: "SageMath allows those students who are more interested in math than `malloc()` to spend more time thinking about math and less time figuring out why their code segfaults."
 
 
@@ -255,6 +262,8 @@ print(max(palindrome_prod))
     906609
 
 
+#### Problem 5
+
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
@@ -264,6 +273,8 @@ What is the smallest positive number that is evenly divisible by all of the numb
 %timeit lcm(range(1,21))
 lcm(range(1,21))
 ```
+
+#### Problem 6
 
 The sum of the squares of the first ten natural numbers is 385
 
