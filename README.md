@@ -12,18 +12,12 @@ If you are solving the problems for the sake of learning and found yourself here
 ### Why SAGEmath for Project Euler Problems
 
 The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already. 
-
-SAGEmath is appropriate because:
-
 0. **Accessibility**: Sagemath is _FOSS_ alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.
-
 1. **Ease of Use**:
    - [Linux installation](https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux) is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.
    - [Jupyter integration] as demonstrated in this project. 
    - [CoCalc](https://cocalc.com/features/sage) allows for collaborative computational work (freemium).
-   
 2. **Highly Optimized**: "SageMath allows those students who are more interested in math than `malloc()` to spend more time thinking about math and less time figuring out why their code segfaults."
-
 
 #### Notes:
 - `README.md` is the output of the `euler-problemset-sage.ipynb` file.

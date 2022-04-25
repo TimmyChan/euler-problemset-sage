@@ -13331,26 +13331,15 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Why-SAGEmath-for-Project-Euler-Problems">Why SAGEmath for Project Euler Problems<a class="anchor-link" href="#Why-SAGEmath-for-Project-Euler-Problems">&#182;</a></h3><p>The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already.</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>SAGEmath is appropriate because:</p>
 <ol>
-<li><p><strong>Accessibility</strong>: Sagemath is <em>FOSS</em> alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.</p>
-</li>
-<li><p><strong>Ease of Use</strong>:</p>
-<ul>
+<li><strong>Accessibility</strong>: Sagemath is <em>FOSS</em> alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.</li>
+<li><strong>Ease of Use</strong>:<ul>
 <li><a href="https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux">Linux installation</a> is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.</li>
 <li>[Jupyter integration] as demonstrated in this project. </li>
 <li><a href="https://cocalc.com/features/sage">CoCalc</a> allows for collaborative computational work (freemium).</li>
 </ul>
 </li>
-<li><p><strong>Highly Optimized</strong>: "SageMath allows those students who are more interested in math than <code>malloc()</code> to spend more time thinking about math and less time figuring out why their code segfaults."</p>
-</li>
+<li><strong>Highly Optimized</strong>: "SageMath allows those students who are more interested in math than <code>malloc()</code> to spend more time thinking about math and less time figuring out why their code segfaults."</li>
 </ol>
 
 </div>
@@ -13372,7 +13361,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</aside></div></section></section><section><section>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13898,51 +13887,6 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 <pre>906609</pre>
 </div>
 
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">999</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">999</span>
-
-<span class="n">palindrome_prod</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">while</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">m</span><span class="p">:</span>
-        <span class="n">prod</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">n</span>
-        <span class="k">if</span> <span class="n">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prod</span><span class="p">))</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">():</span>
-            <span class="n">palindrome_prod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">m</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">999</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">palindrome_prod</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>906609
-</pre>
-</div>
 </div>
 
 </div>
