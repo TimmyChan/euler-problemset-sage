@@ -161,28 +161,75 @@ $$\begin{align*}
 
 Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence is exactly the $k+2$-th Fibnocci number minus one: $$\displaystyle\sum_{i=1}^k F(i) = F(k+2)-1,$$ which in turn imply $$\sum_{i=0}^{k} F(3i) = \frac{F(3k+2)-1} 2 $$ where $3k$ is the index of the largest even Fibonocci number under the defined upperbound.
 
-So that means we need to find some clever way to find this index. 
-
-
+Now we bring the full power of sage: First, we'll find the max even Fibonacci number, then we'll quickly find the sum using the above.
 
 
 ```python
-Binet(3)
+upperbound = 4000000
+fib_list = list(fibonacci_xrange(floor(upperbound/8), upperbound))
+print(fib_list)
+max_even_fib = max([f for f in fib_list if mod(f,2)==0])
+print(max_even_fib)
+max_even_fib_index = fib_list.index(max_even_fib)
+
+var('x, k')
+Binet(x) = ((golden_ratio)^x - cos(pi * x) (golden_ratio)^(-x))/sqrt(5)
+
+find_root(Binet(k) == max_even_fib, 0, 35)
 ```
+
+    [514229, 832040, 1346269, 2178309, 3524578]
+    3524578
+
 
 
     ---------------------------------------------------------------------------
 
-    NameError                                 Traceback (most recent call last)
+    RuntimeError                              Traceback (most recent call last)
 
-    Input In [9], in <cell line: 1>()
-    ----> 1 Binet(Integer(3))
+    Input In [66], in <cell line: 11>()
+          8 var('x, k')
+          9 __tmp__=var("x"); Binet = symbolic_expression(((golden_ratio)**x - cos(pi * x) (golden_ratio)**(-x))/sqrt(Integer(5))).function(x)
+    ---> 11 find_root(Binet(k) == max_even_fib, Integer(0), Integer(35))
 
 
-    NameError: name 'Binet' is not defined
+    File /usr/lib/python3/dist-packages/sage/numerical/optimize.py:106, in find_root(f, a, b, xtol, rtol, maxiter, full_output)
+         20 r"""
+         21 Numerically find a root of ``f`` on the closed interval `[a,b]`
+         22 (or `[b,a]`) if possible, where ``f`` is a function in the one variable.
+       (...)
+        103 
+        104 """
+        105 try:
+    --> 106     return f.find_root(a=a,b=b,xtol=xtol,rtol=rtol,maxiter=maxiter,full_output=full_output)
+        107 except AttributeError:
+        108     pass
 
 
-#### Problem 3
+    File /usr/lib/python3/dist-packages/sage/symbolic/expression.pyx:11810, in sage.symbolic.expression.Expression.find_root (build/cythonized/sage/symbolic/expression.cpp:61866)()
+      11808 elif self.number_of_arguments() == 1:
+      11809     f = self._fast_float_(self.default_variable())
+    > 11810     return find_root(f, a=a, b=b, xtol=xtol,
+      11811                      rtol=rtol,maxiter=maxiter,
+      11812                      full_output=full_output)
+
+
+    File /usr/lib/python3/dist-packages/sage/numerical/optimize.py:139, in find_root(f, a, b, xtol, rtol, maxiter, full_output)
+        137             else:
+        138                 return s
+    --> 139         raise RuntimeError("f appears to have no zero on the interval")
+        140     a = s
+        142 # Fixing :trac:`4942` - if the answer on any of the endpoints is NaN, 
+        143 # we restrict to looking between minimum and maximum values in the segment
+        144 # Note - this could be used in all cases, but it requires some more 
+        145 # computation
+
+
+    RuntimeError: f appears to have no zero on the interval
+
+
+f(x) = Binet(x) - max_even_fib
+find_root(f(x), .5*Fib_index(max_even_fib), 1.5*Fib_index(max_even_fib))#### Problem 3
 
 The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143?
