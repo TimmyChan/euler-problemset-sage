@@ -7,8 +7,8 @@ else
 	let COMMENT = $1
 fi
 
-jupyter nbconvert --to markdown euler-problemset-sage.ipynb --output README.md
-jupyter nbconvert --to slides euler-problemset-sage.ipynb --output-dir ./docs/index.html
+jupyter nbconvert euler-problemset-sage.ipynb --to markdown --output README.md
+jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/index.html
 
 git add .
 git commit -m "$COMMENT"
