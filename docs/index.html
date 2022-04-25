@@ -13394,8 +13394,7 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python Simple Solution (1000 is so smol)</span>
 
-<span class="o">%</span><span class="k">timeit</span> sum([x for x in range(1,1000) if mod(x,3)==0 or mod(x,5)==0])
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="k">if</span> <span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13408,14 +13407,15 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3.93 ms ± 132 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-233168
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>233168</pre>
 </div>
+
 </div>
 
 </div>
@@ -13435,52 +13435,51 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using some arithimetic</span>
 <span class="k">def</span> <span class="nf">sum_multiples_below</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
-    <span class="n">maxfactor</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">limit</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">divisor</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">maxfactor</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">divisor</span> <span class="o">+</span> <span class="n">maxfactor</span><span class="o">*</span><span class="n">divisor</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;limit: </span><span class="si">%d</span><span class="s2">, divisor: </span><span class="si">%d</span><span class="s2"> =&gt; maxfactor: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="n">divisor</span><span class="p">,</span> <span class="n">maxfactor</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> returning </span><span class="si">%d</span><span class="s2">/2 * (</span><span class="si">%d</span><span class="s2"> + </span><span class="si">%d</span><span class="s2">) = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">maxfactor</span><span class="p">,</span> <span class="n">divisor</span><span class="p">,</span> <span class="n">maxfactor</span><span class="o">*</span> <span class="n">divisor</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">result</span>
+    <span class="sd">&#39;&#39;&#39; Finds sum of all the natural numbers under the limit </span>
+<span class="sd">        that are divisible by the divisor&#39;&#39;&#39;</span>
+    <span class="c1"># The -1 on the upperbound is cuz the problem is &quot;strictly&quot; less than.</span>
+    <span class="n">maxfactor</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">limit</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">divisor</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="n">maxfactor</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">divisor</span> <span class="o">+</span> <span class="n">maxfactor</span><span class="o">*</span><span class="n">divisor</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">sum_multiples_below</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>limit: 1000, divisor: 3 =&gt; maxfactor: 333
-	 returning 333/2 * (3 + 999) = 166833
-limit: 1000, divisor: 5 =&gt; maxfactor: 199
-	 returning 199/2 * (5 + 995) = 99500
-limit: 1000, divisor: 15 =&gt; maxfactor: 66
-	 returning 66/2 * (15 + 990) = 33165
-233168
-</pre>
-</div>
-</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A Quick Comparision between the two methods:</p>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum([x for x in range(1,1000000) if mod(x,3)==0 or mod(x,5)==0])
 
-</div></div></section></section><section><section>
+<span class="o">%</span><span class="k">timeit</span> sum_multiples_below(1000000, 3) + sum_multiples_below(1000000, 5) - sum_multiples_below(1000000,15)
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13500,7 +13499,7 @@ limit: 1000, divisor: 15 =&gt; maxfactor: 66
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">evensum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13514,26 +13513,6 @@ limit: 1000, divisor: 15 =&gt; maxfactor: 66
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4613732</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13560,7 +13539,7 @@ limit: 1000, divisor: 15 =&gt; maxfactor: 66
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> factor(600851475143)
@@ -13569,37 +13548,6 @@ limit: 1000, divisor: 15 =&gt; maxfactor: 66
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>5.04 µs ± 160 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>71 * 839 * 1471 * 6857</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

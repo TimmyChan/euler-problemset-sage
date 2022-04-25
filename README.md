@@ -34,15 +34,16 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 
 ```python
-
 # Python Simple Solution (1000 is so smol)
 
-%timeit sum([x for x in range(1,1000) if mod(x,3)==0 or mod(x,5)==0])
-print(sum([x for x in range(1,1000) if mod(x,3)==0 or mod(x,5)==0]))
+sum([x for x in range(1,1000) if mod(x,3)==0 or mod(x,5)==0])
 ```
 
-    3.93 ms ± 132 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+
+
     233168
+
 
 
 #### Math Solution:
@@ -59,24 +60,24 @@ Furthermore, note that if we create the set of all the multiples of 3 up to 999,
 ```python
 # Using some arithimetic
 def sum_multiples_below(limit, divisor):
-    maxfactor = floor((limit-1)/divisor)
-    result = (maxfactor)/2*(divisor + maxfactor*divisor)
-    print("limit: %d, divisor: %d => maxfactor: %d" % (limit, divisor, maxfactor))
-    print("\t returning %d/2 * (%d + %d) = %d" % (maxfactor, divisor, maxfactor* divisor, result))
-    return result
+    ''' Finds sum of all the natural numbers under the limit 
+        that are divisible by the divisor'''
+    # The -1 on the upperbound is cuz the problem is "strictly" less than.
+    maxfactor = floor((limit-1)/divisor) 
+    return (maxfactor)/2*(divisor + maxfactor*divisor)
 
-print(sum_multiples_below(1000, 3) + sum_multiples_below(1000, 5) - sum_multiples_below(1000,15))
+sum_multiples_below(1000, 3) + sum_multiples_below(1000, 5) - sum_multiples_below(1000,15)
 
 ```
 
-    limit: 1000, divisor: 3 => maxfactor: 333
-    	 returning 333/2 * (3 + 999) = 166833
-    limit: 1000, divisor: 5 => maxfactor: 199
-    	 returning 199/2 * (5 + 995) = 99500
-    limit: 1000, divisor: 15 => maxfactor: 66
-    	 returning 66/2 * (15 + 990) = 33165
-    233168
+A Quick Comparision between the two methods:
 
+
+```python
+%timeit sum([x for x in range(1,1000000) if mod(x,3)==0 or mod(x,5)==0])
+
+%timeit sum_multiples_below(1000000, 3) + sum_multiples_below(1000000, 5) - sum_multiples_below(1000000,15)
+```
 
 ### Problem 2
 
@@ -100,13 +101,6 @@ for i in range(1000):
 evensum
 ```
 
-
-
-
-    4613732
-
-
-
 #### Math Solution: 
 
 First, begin with
@@ -124,16 +118,6 @@ First, begin with
 
 factor(600851475143)
 ```
-
-    5.04 µs ± 160 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-
-
-
-
-
-    71 * 839 * 1471 * 6857
-
-
 
 4. A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 
