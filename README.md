@@ -86,8 +86,8 @@ A Quick Comparision between the two methods:
 %timeit sum_multiples_below(1000000, 3) + sum_multiples_below(1000000, 5) - sum_multiples_below(1000000,15)
 ```
 
-    4.14 s ± 39.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-    5.35 µs ± 22.2 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+    4 s ± 50.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    5.14 µs ± 7.05 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 
 
 ### Problem 2
@@ -127,11 +127,14 @@ evensum
 
 #### Math Solution: 
 
-First, recall the formal definition of the Fibonacci sequence:
+First, recall the formal definition of the Fibonacci sequence. Given some natural number $n$, the $n$-th Fibonacci number, $F(n)$ is defined to be:
 
 $$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$
 
-Argument: "Every Fibnocci number whose index is a multiple of three is even, and only those are even."
+Claim: "Every Fibnocci number whose index is a multiple of three is even, and only those are even."
+
+_Proof:_ 
+
 Base case:
 $$\begin{align*}
 F(1), F(2) \text{ is odd } &\implies F(3) \text{ is even }; \\
@@ -152,15 +155,40 @@ $$\begin{align*}
 \sum_{i=0}^{k} F(3i) &=  (F(1) + F(2)) + (F(4) + F(5)) + \cdots + (F(3k-2) + F(3k-1))\\ 
 & \text{ add the above two lines } \\
 \implies 2 \sum_{i=0}^{k} F(3i) &= F(1) + F(2) + F(3) + \cdots + F(3k) \\
-\implies \sum_{i=0}^{k} F(3i) &= \frac 1 2 \sum_{i=0}^{3k} F(i) \\
- 
+\implies \sum_{i=0}^{k} F(3i) &= \frac 1 2 \sum_{i=0}^{3k} F(i) \\ 
 \end{align*}$$
 
-Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence $$\displaystyle\sum_{i=1}^k F(i) = F(k+2)-1,$$ which in turn imply $$\sum_{i=0}^{k} F(3k) &= \frac F(3k+2)-1 $$ where $3k$ is the index of the largest even Fibonocci number under the defined upperbound. 
 
-3. The prime factors of 13195 are 5, 7, 13 and 29.
+Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence is exactly the $k+2$-th Fibnocci number minus one: $$\displaystyle\sum_{i=1}^k F(i) = F(k+2)-1,$$ which in turn imply $$\sum_{i=0}^{k} F(3i) = \frac{F(3k+2)-1} 2 $$ where $3k$ is the index of the largest even Fibonocci number under the defined upperbound.
 
-   What is the largest prime factor of the number 600851475143?
+So that means we need to find some clever way to find this index. 
+
+
+
+
+```python
+Binet(3)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    Input In [9], in <cell line: 1>()
+    ----> 1 Binet(Integer(3))
+
+
+    NameError: name 'Binet' is not defined
+
+
+#### Problem 3
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?
+
+__Remarks:__
+Prime factorization is already optimized in SAGEmath.
 
 
 ```python
@@ -169,7 +197,7 @@ Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequ
 factor(600851475143)
 ```
 
-    5.3 µs ± 11.9 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+    5.24 µs ± 9.87 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 
 
 
@@ -215,7 +243,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 lcm(range(1,21))
 ```
 
-    1.83 µs ± 7.76 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+    1.79 µs ± 22.4 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 
 
 The sum of the squares of the first ten natural numbers is 385

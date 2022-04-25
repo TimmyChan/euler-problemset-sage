@@ -13509,8 +13509,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4.14 s ± 39.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-5.35 µs ± 22.2 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>4 s ± 50.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+5.14 µs ± 7.05 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre>
 </div>
 </div>
@@ -13540,7 +13540,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">evensum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13575,7 +13575,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13593,9 +13593,10 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Math-Solution:">Math Solution:<a class="anchor-link" href="#Math-Solution:">&#182;</a></h4><p>First, recall the formal definition of the Fibonacci sequence:</p>
-$$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$<p>Argument: "Every Fibnocci number whose index is a multiple of three is even, and only those are even."
-Base case:
+<h4 id="Math-Solution:">Math Solution:<a class="anchor-link" href="#Math-Solution:">&#182;</a></h4><p>First, recall the formal definition of the Fibonacci sequence. Given some natural number $n$, the $n$-th Fibonacci number, $F(n)$ is defined to be:</p>
+$$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$<p>Claim: "Every Fibnocci number whose index is a multiple of three is even, and only those are even."</p>
+<p><em>Proof:</em></p>
+<p>Base case:
 $$\begin{align*}
 F(1), F(2) \text{ is odd } &amp;\implies F(3) \text{ is even }; \\
 F(2) \text{ is odd and } F(3) \text{ is even } &amp;\implies F(4) \text{ is odd }; \\
@@ -13614,26 +13615,69 @@ Q.E.D.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Summing every even fibnocci number is basically taking half of the sum:
 $$\begin{align*}
-\sum<em>{i=0}^{k} F(3i) &amp;=  F(3) + F(6) + \cdots + F(3k)\
-&amp;\text{ by subsitution definiton of each term:} \
-\sum</em>{i=0}^{k} F(3i) &amp;=  (F(1) + F(2)) + (F(4) + F(5)) + \cdots + (F(3k-2) + F(3k-1))\ 
-&amp; \text{ add the above two lines } \
-\implies 2 \sum<em>{i=0}^{k} F(3i) &amp;= F(1) + F(2) + F(3) + \cdots + F(3k) \
-\implies \sum</em>{i=0}^{k} F(3i) &amp;= \frac 1 2 \sum_{i=0}^{3k} F(i) \</p>
-<p>\end{align*}$$</p>
-<p>Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence $$\displaystyle\sum_{i=1}^k F(i) = F(k+2)-1,$$ which in turn imply $$\sum_{i=0}^{k} F(3k) &amp;= \frac F(3k+2)-1 $$ where $3k$ is the index of the largest even Fibonocci number under the defined upperbound.</p>
+\sum_{i=0}^{k} F(3i) &amp;=  F(3) + F(6) + \cdots + F(3k)\\
+&amp;\text{ by subsitution definiton of each term:} \\
+\sum_{i=0}^{k} F(3i) &amp;=  (F(1) + F(2)) + (F(4) + F(5)) + \cdots + (F(3k-2) + F(3k-1))\\ 
+&amp; \text{ add the above two lines } \\
+\implies 2 \sum_{i=0}^{k} F(3i) &amp;= F(1) + F(2) + F(3) + \cdots + F(3k) \\
+\implies \sum_{i=0}^{k} F(3i) &amp;= \frac 1 2 \sum_{i=0}^{3k} F(i) \\ 
+\end{align*}$$</p>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence is exactly the $k+2$-th Fibnocci number minus one: $$\displaystyle\sum_{i=1}^k F(i) = F(k+2)-1,$$ which in turn imply $$\sum_{i=0}^{k} F(3i) = \frac{F(3k+2)-1} 2 $$ where $3k$ is the index of the largest even Fibonocci number under the defined upperbound.</p>
+<p>So that means we need to find some clever way to find this index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Binet</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [9]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">Binet</span>(Integer(<span style="color: rgb(98,98,98)">3</span>))
+
+<span class="ansi-red-fg">NameError</span>: name &#39;Binet&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
-<p>What is the largest prime factor of the number 600851475143?</p>
-</li>
-</ol>
+<h4 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h4><p>The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?</p>
+<p><strong>Remarks:</strong>
+Prime factorization is already optimized in SAGEmath.</p>
 
 </div>
 </div>
@@ -13662,7 +13706,7 @@ $$\begin{align*}
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>5.3 µs ± 11.9 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>5.24 µs ± 9.87 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre>
 </div>
 </div>
@@ -13773,7 +13817,7 @@ $$\begin{align*}
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1.83 µs ± 7.76 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<pre>1.79 µs ± 22.4 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre>
 </div>
 </div>
