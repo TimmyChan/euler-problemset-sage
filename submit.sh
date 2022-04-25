@@ -17,7 +17,7 @@ fi
 
 jupyter nbconvert euler-problemset-sage.ipynb --to markdown --output README.md
 jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/
-mv -f ./docs/euler-problemset-sage.slides.html index.html
+sudo mv -f ./docs/euler-problemset-sage.slides.html index.html
 
 
 git add .
