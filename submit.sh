@@ -14,9 +14,11 @@ if  [ !${message_flag} ]; then
     read COMMENT
 fi
 
-rm ./doc/index.html
+
 jupyter nbconvert euler-problemset-sage.ipynb --to markdown --output README.md
 jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/
+mv ./docs/euler-problemset-sage.slides.html index.html
+
 
 git add .
 git commit -m "${COMMENT}"
