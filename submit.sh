@@ -15,7 +15,7 @@ if  [ !${message_flag} ]; then
 fi
 
 jupyter nbconvert euler-problemset-sage.ipynb --to markdown --output README.md
-jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/ --SlidesExporter.reveal_theme='moon' --SlidesExporter.theme='dark'
+jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/ --SlidesExporter.reveal_theme=dark
 
 
 git add .

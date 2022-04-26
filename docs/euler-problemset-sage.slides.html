@@ -16,7 +16,7 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/moon.css" id="theme">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/dark.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -13333,12 +13333,7 @@ a.anchor-link {
 <h3 id="Why-SAGEmath-for-Project-Euler-Problems">Why SAGEmath for Project Euler Problems<a class="anchor-link" href="#Why-SAGEmath-for-Project-Euler-Problems">&#182;</a></h3><p>The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already.</p>
 <ol>
 <li><strong>Accessibility</strong>: Sagemath is <em>FOSS</em> alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.</li>
-<li><strong>Ease of Use</strong>:<ul>
-<li><a href="https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux">Linux installation</a> is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.</li>
-<li>[Jupyter integration] as demonstrated in this project. </li>
-<li><a href="https://cocalc.com/features/sage">CoCalc</a> allows for collaborative computational work (freemium).</li>
-</ul>
-</li>
+<li><strong>Ease of Use</strong>: <a href="https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux">Linux installation</a> is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too. For collaboration, <a href="https://cocalc.com/features/sage">CoCalc</a> allows for collaborative work (freemium).</li>
 <li><strong>Highly Optimized</strong>: "SageMath allows those students who are more interested in math than <code>malloc()</code> to spend more time thinking about math and less time figuring out why their code segfaults."</li>
 </ol>
 
@@ -13422,8 +13417,8 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Math-Solution:">Math Solution:<a class="anchor-link" href="#Math-Solution:">&#182;</a></h4><p>Note that for an arithimetic sequence, $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2, \text{ where $n$ is the number of terms to be summed}$$</p>
-<p>And in the case of all the multiples of 3 under 1000, we can simply find</p>
+<h4 id="Math-Solution:">Math Solution:<a class="anchor-link" href="#Math-Solution:">&#182;</a></h4><p>Note that for an arithimetic sequence</p>
+$$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p>where $n$ is the number of terms to be summed.</p>
 <ol>
 <li>How many multiples of 3 exists from 1 up to 999? ($n = \left\lfloor \frac{1000} 3 \right\rfloor = 333$).</li>
 <li>First Term: 3, Last term: 999.</li>
@@ -13484,7 +13479,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum([x for x in range(1,1000000) if mod(x,3)==0 or mod(x,5)==0])
@@ -13506,8 +13501,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4.11 s ± 111 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-4.95 µs ± 11 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>4.3 s ± 34.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13536,7 +13530,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> <span class="k">def</span> <span class="nf">even_fib_sum</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13554,24 +13548,6 @@ a.anchor-link {
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4613732
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13669,7 +13645,7 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">even_fib_sum_quick</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13688,28 +13664,10 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4613732
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comparing the Methods</span>
@@ -13718,25 +13676,6 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2.79 ms ± 134 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-245 µs ± 8.19 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13754,7 +13693,7 @@ Prime factorization is already optimized in SAGEmath.</p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> factor(600851475143)
@@ -13763,37 +13702,6 @@ Prime factorization is already optimized in SAGEmath.</p>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>5.21 µs ± 32.6 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>71 * 839 * 1471 * 6857</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13832,7 +13740,7 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_largest_palindrome_product</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
@@ -13872,26 +13780,6 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>906609</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13905,7 +13793,7 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> lcm(range(1,21))
@@ -13913,37 +13801,6 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1.7 µs ± 12.7 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>232792560</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13961,33 +13818,13 @@ $$<p>Then we wish to show that every element in $V_k$ is great than every elemen
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)])</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>25164150</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

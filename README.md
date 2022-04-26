@@ -11,13 +11,11 @@ If you are solving the problems for the sake of learning and found yourself here
 
 ### Why SAGEmath for Project Euler Problems
 
-The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already. 
-0. **Accessibility**: Sagemath is _FOSS_ alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.
-1. **Ease of Use**:
-   - [Linux installation](https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux) is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too.
-   - [Jupyter integration] as demonstrated in this project. 
-   - [CoCalc](https://cocalc.com/features/sage) allows for collaborative computational work (freemium).
-2. **Highly Optimized**: "SageMath allows those students who are more interested in math than `malloc()` to spend more time thinking about math and less time figuring out why their code segfaults."
+The approach to these problems focuses on using the appropriate tools to tackle appropriate problems. Since mathematical research software have seen significant optimization in NumPy, SciPy, etc., and C++ packages make things go vroom already.
+
+1. **Accessibility**: Sagemath is _FOSS_ alternative to Magma, Maple, Mathematica, and MATLAB; designed by and for mathematics researchers, and usable for anyone who knows python.
+2. **Ease of Use**: [Linux installation](https://doc.sagemath.org/html/en/installation/linux.html#sec-gnu-linux) is super easy on Linux since Python and TeX come prepackaged in many distros. Windows and Mac simple installation also available too. For collaboration, [CoCalc](https://cocalc.com/features/sage) allows for collaborative work (freemium).
+3. **Highly Optimized**: "SageMath allows those students who are more interested in math than `malloc()` to spend more time thinking about math and less time figuring out why their code segfaults."
 
 #### Notes:
 - `README.md` is the output of the `euler-problemset-sage.ipynb` file.
@@ -49,9 +47,10 @@ sum([x for x in range(1,1000) if mod(x,3)==0 or mod(x,5)==0])
 
 #### Math Solution:
 
-Note that for an arithimetic sequence, $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2, \text{ where $n$ is the number of terms to be summed}$$ 
+Note that for an arithimetic sequence
 
-And in the case of all the multiples of 3 under 1000, we can simply find 
+$$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$ where $n$ is the number of terms to be summed.
+
 1. How many multiples of 3 exists from 1 up to 999? ($n = \left\lfloor \frac{1000} 3 \right\rfloor = 333$).
 2. First Term: 3, Last term: 999.
 
@@ -87,8 +86,7 @@ A Quick Comparision between the two methods:
 %timeit sum_multiples_below(1000000, 3) + sum_multiples_below(1000000, 5) - sum_multiples_below(1000000,15)
 ```
 
-    4.11 s ± 111 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-    4.95 µs ± 11 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+    4.3 s ± 34.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 ### Problem 2
@@ -118,9 +116,6 @@ Since the requirements is only up to 4 million, we're not really going so far do
 print(even_fib_sum(4000000))
 ```
 
-    4613732
-
-
 #### Math Solution: 
 
 First, recall the formal definition of the Fibonacci sequence. Given some natural number $n$, the $n$-th Fibonacci number, $F(n)$ is defined to be:
@@ -128,7 +123,6 @@ First, recall the formal definition of the Fibonacci sequence. Given some natura
 $$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$
 
 __Claims:__
-
 
 1. Every Fibnocci number whose index is a multiple of three is even, and only those are even.
 
@@ -190,19 +184,12 @@ def even_fib_sum_quick(upperbound):
 print(even_fib_sum_quick(4000000))
 ```
 
-    4613732
-
-
 
 ```python
 # Comparing the Methods
 %timeit even_fib_sum(1e100)
 %timeit even_fib_sum_quick(1e100)
 ```
-
-    2.79 ms ± 134 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-    245 µs ± 8.19 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
-
 
 #### Problem 3
 
@@ -218,16 +205,6 @@ Prime factorization is already optimized in SAGEmath.
 
 factor(600851475143)
 ```
-
-    5.21 µs ± 32.6 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-
-
-
-
-
-    71 * 839 * 1471 * 6857
-
-
 
 #### Problem 4
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -297,13 +274,6 @@ find_largest_palindrome_product(100, 999)
 ```
 
 
-
-
-    906609
-
-
-
-
 ```python
 m = 999
 n = 999
@@ -322,9 +292,6 @@ while m > 100:
 print(max(palindrome_prod))
 ```
 
-    906609
-
-
 #### Problem 5
 
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
@@ -338,16 +305,6 @@ __Remarks:__ By definition, the least common multiple, $m$, of a set of natural 
 %timeit lcm(range(1,21))
 lcm(range(1,21))
 ```
-
-    1.7 µs ± 12.7 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
-
-
-
-
-
-    232792560
-
-
 
 #### Problem 6
 
@@ -363,13 +320,6 @@ Find the difference between the sum of the squares of the first one hundred natu
 ```python
 sum(range(1,101))^2 - sum([x^2 for x in range(1,101)])
 ```
-
-
-
-
-    25164150
-
-
 
 
 ```python
