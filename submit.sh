@@ -14,9 +14,9 @@ if  [ !${message_flag} ]; then
     read COMMENT
 fi
 
-
 jupyter nbconvert euler-problemset-sage.ipynb --to markdown --output README.md
-jupyter nbconvert euler-problemset-sage.ipynb --to slides  --output-dir ./docs/ --SlidesExporter.reveal_theme=moon
+jupyter nbconvert euler-problemset-sage.ipynb --to slides  --post serve --output-dir ./docs/ --SlidesExporter.reveal_theme='moon'
+
 rm ./docs/index.html
 cp -f ./docs/euler-problemset-sage.slides.html ./docs/index.html
 
