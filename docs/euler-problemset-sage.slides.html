@@ -13319,6 +13319,20 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">notebook_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;euler-problemset-sage.ipynb&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13381,7 +13395,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python Simple Solution (1000 is so smol)</span>
@@ -13398,7 +13412,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[1]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13430,7 +13444,7 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using some arithimetic</span>
@@ -13454,7 +13468,7 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13479,7 +13493,7 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comparison of the functions with large input</span>
@@ -13502,8 +13516,8 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4.39 s ± 22.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-5.49 µs ± 186 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>4.29 s ± 109 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+5.2 µs ± 57.5 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre>
 </div>
 </div>
@@ -13532,7 +13546,7 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> <span class="k">def</span> <span class="nf">even_fib_sum</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13664,7 +13678,7 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">even_fib_sum_quick</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13704,7 +13718,7 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comparing the methods with large input</span>
@@ -13728,15 +13742,15 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2.72 ms ± 94.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-257 µs ± 13 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<pre>2.41 ms ± 32.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+236 µs ± 3.72 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13764,7 +13778,7 @@ Prime factorization is already optimized in SAGEmath.</p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> factor(600851475143)
@@ -13785,7 +13799,7 @@ Prime factorization is already optimized in SAGEmath.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>5.24 µs ± 108 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>5.59 µs ± 239 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 71 * 839 * 1471 * 6857
 </pre>
 </div>
@@ -13812,7 +13826,7 @@ P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_largest_palindrome_product</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
@@ -13846,7 +13860,7 @@ P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13894,7 +13908,7 @@ $$
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># FAST</span>
@@ -13962,7 +13976,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13989,7 +14003,7 @@ $$
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> lcm(range(1,21))
@@ -14010,14 +14024,14 @@ $$
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1.88 µs ± 35.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<pre>2.02 µs ± 52.6 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14045,7 +14059,7 @@ $$
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Naive: Literal interpretation:</span>
@@ -14065,7 +14079,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14098,7 +14112,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fast_diff</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
@@ -14117,7 +14131,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -14134,7 +14148,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">large_input</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
@@ -14159,21 +14173,21 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>350 ms ± 4.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-756 ns ± 16.9 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<pre>3.23 ms ± 18.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+727 ns ± 6.39 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>250000166666416666500000</pre>
+<pre>2500166641665000</pre>
 </div>
 
 </div>
@@ -14181,20 +14195,149 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-7">Problem 7<a class="anchor-link" href="#Problem-7">&#182;</a></h4><p>By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p>
+<p>What is the 10 001st prime number?</p>
+
 </div>
+</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># SAGEmath makes this feels almost like cheating...</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">Primes</span><span class="p">()</span>
+<span class="o">%</span><span class="k">timeit</span> P.unrank(10000)
+<span class="n">P</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div></section></section>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.08 µs ± 18.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>104743</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-8">Problem 8<a class="anchor-link" href="#Problem-8">&#182;</a></h4><p>The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.</p>
+
+<pre><code>73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511
+12540698747158523863050715693290963295227443043557
+66896648950445244523161731856403098711121722383113
+62229893423380308135336276614282806444486645238749
+30358907296290491560440772390713810515859307960866
+70172427121883998797908792274921901699720888093776
+65727333001053367881220235421809751254540594752243
+52584907711670556013604839586446706324415722155397
+53697817977846174064955149290862569321978468622482
+83972241375657056057490261407972968652414535100474
+82166370484403199890008895243450658541227588666881
+16427171479924442928230863465674813919123162824586
+17866458359124566529476545682848912883142607690042
+24219022671055626321111109370544217506941658960408
+07198403850962455444362981230987879927244284909188
+84580156166097919133875499200524063689912560717606
+05886116467109405077541002256983155200055935729725
+71636269561882670428252483600823257530420752963450</code></pre>
+<p>Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># After coping the input into a textfile in the same directory as the notebook...</span>
+<span class="n">input_txt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">notebook_path</span><span class="p">),</span> <span class="s2">&quot;input7.txt&quot;</span><span class="p">)</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_txt</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">input</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">prod_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="o">-</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">prod_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">prod</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">13</span><span class="p">]]))</span>
+    
+<span class="nb">max</span><span class="p">(</span><span class="n">prod_set</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>23514624000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-9">Problem 9<a class="anchor-link" href="#Problem-9">&#182;</a></h4><p>A Pythagorean triplet is a set of three natural numbers, $a &lt; b &lt; c$, for which,</p>
+$$a^2 + b^2 = c^2$$<p>For example, $32 + 42 = 9 + 16 = 25 = 52$.</p>
+<p>There exists exactly one Pythagorean triplet for which $a + b + c = 1000$.
+Find the product abc.</p>
+
+</div>
+</div>
+</div></div></section></section>
 </div>
 </div>
 
