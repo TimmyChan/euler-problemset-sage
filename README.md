@@ -83,10 +83,14 @@ A Quick Comparision between the two methods:
 
 ```python
 # Comparison of the functions with large input
-large_input = Integer(1e10)
+large_input = Integer(1e6)
 %timeit sum([x for x in range(1,large_input) if mod(x,3)==0 or mod(x,5)==0])
 %timeit sum_multiples_below(large_input, 3) + sum_multiples_below(large_input, 5) - sum_multiples_below(large_input,15)
 ```
+
+    4.39 s ± 22.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    5.49 µs ± 186 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+
 
 ### Problem 2
 
@@ -115,6 +119,9 @@ Since the requirements is only up to 4 million, we're not really going so far do
 print(even_fib_sum(4000000))
 ```
 
+    4613732
+
+
 #### Math Solution: 
 
 First, recall the formal definition of the Fibonacci sequence. Given some natural number 
@@ -122,7 +129,9 @@ $n$, the
 $n$-th Fibonacci number, 
 $F(n)$ is defined to be:
 
-$$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$
+\begin{equation}
+F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.
+\end{equation}
 
 __Claims:__
 
@@ -133,7 +142,10 @@ $F(0)$ up to some
 $F(n)$ is exactly half of the sum of all the Fibonacci numbers up to 
 $F(n)$
 
-3. This sum can be evaluated with $\displaystyle\frac{(F(n+2)-1)} 2$
+3. This sum can be evaluated with 
+\begin{equation}
+\displaystyle\frac{(F(n+2)-1)} 2
+\end{equation}
 
 __Proofs:__ 
 
@@ -141,47 +153,47 @@ Claim 1: _Every Fibnocci number whose index is a multiple of three is even, and 
 
 Base case:
 
-\begin{align*}
+\begin{align}
 F(1), F(2) \text{ is odd } &\implies F(3) \text{ is even }; \\
 F(2) \text{ is odd and } F(3) \text{ is even } &\implies F(4) \text{ is odd }; \\
 F(3) \text{ is even and }  F(4) \text{ is odd } &\implies F(5) \text{ is odd }; \\
 F(4) \text{ is odd and } F(5) \text{ is odd } &\implies F(6) \text{ is even }.
-\end{align*}
+\end{align}
 
 Assuming that there exists two odd numbers in the sequence and the following must be even, then the same structure holds, and $$F(n-2), F(n-1)\text{ both odd }\implies F(n)\text{ must be even.}$$ Replacing the indcies of the above statements one will arrive then to the statement: $F(n)$ is even must imply F(n+3) is also even. Since F(3) is even, all index of even Fibnocci numbers are multiples of three. 
 Q.E.D.
 
 That means we're really just summing up every third Fibnocci number.
 
-Proofs: 
+__Proof:__
 
 Claim 2: _The sum of even Fibonacci numbers beginning from $F(0)$ up to some $F(n)$ is exactly half of the sum of all the Fibonacci numbers up to $F(n)$_
 
-\begin{align*}
+\begin{align}
 \sum_{i=0}^{k} F(3i) &=  F(3) + F(6) + \cdots + F(3k)\\
 &\text{ by subsitution definiton of each term:} \\
 \sum_{i=0}^{k} F(3i) &=  (F(1) + F(2)) + (F(4) + F(5)) + \cdots + (F(3k-2) + F(3k-1))\\ 
 & \text{ add the above two lines } \\
 \implies 2 \sum_{i=0}^{k} F(3i) &= F(1) + F(2) + F(3) + \cdots + F(3k) \\
 \implies \sum_{i=0}^{k} F(3i) &= \frac 1 2 \sum_{i=0}^{3k} F(i) \\ 
-\end{align*}
+\end{align}
 
 
 Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence is exactly the $k+2$-th Fibnocci number minus one: 
 
-\begin{align*}
+\begin{align}
 \displaystyle\sum_{i=1}^k F(i) &= F(k+2)-1,\\
 \therefore \sum_{i=0}^{k} F(3i) &= \frac 1 2 \sum_{i=0}^{3k} F(i) = \frac{F(3k+2)-1} 2,
-\end{align*}
+\end{align}
 
 where $3k$ is the index of the largest even Fibonocci number under the defined upperbound. This index $3k$ such that $F(n) < M$ for some upperbound $M$ requires a couple of steps:
 1. Note $F_{3k} \approx \left\lfloor\frac{\Phi^{3k}}{\sqrt{5}}\right\rfloor$
 2. Thus, Given some $M$, we can estimate $n$ by examining the inverse:
-$$ \begin{align*}
+\begin{align}
 M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
-\implies \ln(\sqrt{5} M) &\approx 3k \ln(\Phi) \\
-\implies \frac{\ln(\sqrt{5} M)}{\ln(\Phi)} &\approx 3k
-\end{align*}$$
+\implies \ln\left(\sqrt{5} M\right) &\approx 3k \ln(\Phi) \\
+\implies \frac{\ln\left(\sqrt{5} M\right)}{\ln(\Phi)} &\approx 3k
+\end{align}
 
 
 ```python
@@ -197,13 +209,28 @@ def even_fib_sum_quick(upperbound):
 print(even_fib_sum_quick(4000000))
 ```
 
+    4613732
+
+
 
 ```python
 # Comparing the methods with large input
 large_input = Integer(1e100)
 %timeit even_fib_sum(large_input)
 %timeit even_fib_sum_quick(large_input)
+even_fib_sum(large_input) == even_fib_sum_quick(large_input)
 ```
+
+    2.72 ms ± 94.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    257 µs ± 13 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+
+
+
+
+
+    True
+
+
 
 #### Problem 3
 
@@ -219,6 +246,10 @@ Prime factorization is already optimized in SAGEmath.
 print(factor(600851475143))
 ```
 
+    5.24 µs ± 108 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+    71 * 839 * 1471 * 6857
+
+
 #### Problem 4
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 
@@ -227,10 +258,44 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 __Remarks__: 
 
 First, we begin with picturing these products a $M \times M$ matrix $\mathbf{P}$, where $M$ is the maximum listed above (999 in this case). 
-$$ P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}$$
+\begin{equation}
+P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}
+\end{equation}
 
 So $P_{999,999} = 999^2$, for example. Suppose we fix the sum of the indcies, say $k \in \mathbb{N}$ such that $M + 1 \leq k \leq 2M$. 
 
+
+
+```python
+def find_largest_palindrome_product(lower=100, upper=999):
+    '''
+    List every product
+    find every palindrome
+    then return max
+    '''
+    m = upper
+    n = upper
+    palindrome_prod = []
+    while m > lower:
+        while n >= m:
+            prod = m*n
+            if Word(str(prod)).is_palindrome():
+                palindrome_prod.append(prod)
+            n -= 1
+        m -= 1
+        n = upper
+    return max(palindrome_prod)
+find_largest_palindrome_product()
+```
+
+
+
+
+    906609
+
+
+
+__Using Sensible Math__
 
 Let's arrange these sets into vectors; the vector $V_k$ as entry at the $j$-th term as:
 
@@ -242,7 +307,8 @@ Each of these vectors is an arrangement of the products of the form $ab$ for any
 
 Visually, we're scanning the matrix using an entry along the main diagonal (or one above it when $k$ is odd) as starting points, and iterating over the matrix cells by going "up one, right one" to evaluate each of these products --- this saves time in sorting. This describes the bottom right half of the matrix above the main diagonal. $$ (V_{k})_c \geq (V_{k-2})_c$$ simply because $ab > (a-1)(b-1)$ for positive $a,b$. However, examining the max terms of $V_{k-1}$ and the minimum of $V_{k}$ shows that as $k$ decreases, there will be some point where $V_{k-1}$ and $V_{k}$ begin to contain non decreasing intervals.
 
-In implementation, this means to be careful when iterating through a matrix in this way, and we have to check for one more vector beyond what we have, since the distribution of palindrome products in this matrix is... too deep for the scope of this practice problem.
+In implementation, this means to be careful when iterating through a matrix in this way, and we have to check for one more vector beyond what we have.
+
 
 
 This is a decreasing sequence given a fixed $k$, justified by the fact that the product of two terms, given that their sum is fixed, is maximized when $a =b$ (or as close as possible when a+b is odd). The proof is exactly the same as a standard Calculus I problem about max area given fixed length fence.
@@ -258,7 +324,27 @@ $$
 
 
 ```python
-def find_largest_palindrome_product(lower=1,upper=999):
+# FAST
+def prod_list(index_sum, lower, upper):
+    '''
+    Given some k, go through and list a*b where 
+    a, b in [lower, upper] and
+    a + b = k
+    '''
+    prods = []
+    if is_even(index_sum):
+            n = index_sum / 2
+            m = index_sum / 2
+    else:
+            n = floor(index_sum / 2) +1
+            m = floor(index_sum / 2)
+    while n <= upper and m >= lower:
+        prods.append(m*n)
+        n += 1
+        m -= 1
+    return prods
+
+def find_largest_palindrome_product_fast(lower=1,upper=999):
     ''' 
     Finds Largest Palindrome formed by the product of two numbers
     from the interval [lower, upper]. Returns None if none found.
@@ -271,51 +357,35 @@ def find_largest_palindrome_product(lower=1,upper=999):
     m = upper
     n = upper
     s = m+n
-    palindrome_prods = []
-    found_index_sum = -1
-    loop_again = False
+    palindromes = []
     for i in range(2*(upper-lower)):
         index_sum = 2*upper - i
-        if is_even(index_sum):
-            n = index_sum / 2
-            m = index_sum / 2
-        else:
-            n = floor(index_sum / 2) +1
-            m = floor(index_sum / 2)
-        while n <= upper and m >= lower:
-            prod = m*n
-            if Word(str(prod)).is_palindrome():
-                palindrome_prods.append(prod)
-                found_index_sum = index_sum
-                break
-            n += 1
-            m -= 1
-        if len(palindrome_prods) > 0 and found_index_sum < index_sum:
+        # Get a vector as defined in previous slide
+        vector = prod_list(index_sum, lower, upper)
+        # Check for palindromes
+        palindromes = [prod for prod in vector if Word(str(prod)).is_palindrome()]
+        #print(vector,palindromes)
+        if len(palindromes) > 0:
+            # being safe here, as above, we have to check one more vector
+            vector = prod_list(index_sum -1, lower, upper)
+            next_palindromes = [prod for prod in vector if Word(str(prod)).is_palindrome()]
+            # attaching the new list of palindromes if it exists
+            palindromes += next_palindromes
             break
-    return max(palindrome_prods)
+    return max([int(p) for p in palindromes])
+
+    
         
-find_largest_palindrome_product(100, 999)
+find_largest_palindrome_product_fast(1, 999)
 
 ```
 
 
-```python
-m = 999
-n = 999
 
-palindrome_prod = []
 
-while m > 100:
-    while n >= m:
-        prod = m*n
-        if Word(str(prod)).is_palindrome():
-            palindrome_prod.append(prod)
-        n -= 1
-    m -= 1
-    n = 999
+    906609
 
-print(max(palindrome_prod))
-```
+
 
 #### Problem 5
 
@@ -331,20 +401,87 @@ __Remarks:__ By definition, the least common multiple, $m$, of a set of natural 
 lcm(range(1,21))
 ```
 
+    1.88 µs ± 35.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+
+
+
+
+
+    232792560
+
+
+
 #### Problem 6
 
-The sum of the squares of the first ten natural numbers is 385
+The sum of the squares of the first ten natural numbers is 385.
 
-The square of the sum of the first ten natural numbers is 3025
+The square of the sum of the first ten natural numbers is 3025.
 
-Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is .
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 - 385 = 2640.
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
 
 ```python
-sum(range(1,101))^2 - sum([x^2 for x in range(1,101)])
+#Naive: Literal interpretation:
+def naive_diff(upper=100):
+    return sum(range(1,upper+1))^2 - sum([x^2 for x in range(1,upper+1)])
+
+naive_diff()
 ```
+
+
+
+
+    25164150
+
+
+
+__Mathematical Approach:__
+See this [proof](https://math.stackexchange.com/questions/48080/sum-of-first-n-squares-equals-fracnn12n16) for the first line.
+\begin{align}
+\sum_{n=1}^k n^2 &= \frac{n(n+1)(2n+1)}{6} \\
+\left( \sum_{n=1}^k n  \right)^2 &= \left( \frac { n(n+1)} 2 \right)^2\\
+\therefore \left( \sum_{n=1}^k n  \right)^2 - \sum_{n=1}^k n^2 &= \left( \frac { n(n+1)} 2 \right)^2 - \frac{n(n+1)(2n+1)}{6} \\
+&= \frac{3n^2(n+1)^2}{12} - \frac{2n(n+1)(2n+1)}{12} \\
+&= \frac{n((n-1)(3n+2))(n+1)}{12}
+\end{align}
+
+
+```python
+def fast_diff(upper=100):
+    return (upper*((upper-1)*(3*upper+2))*(upper+1))/12
+
+fast_diff()
+```
+
+
+
+
+    25164150
+
+
+
+
+```python
+large_input = Integer(1e4)
+%timeit naive_diff(large_input)
+%timeit fast_diff(large_input)
+
+naive_diff(large_input)
+fast_diff(large_input)
+```
+
+    350 ms ± 4.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    756 ns ± 16.9 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+
+
+
+
+
+    250000166666416666500000
+
+
 
 
 ```python

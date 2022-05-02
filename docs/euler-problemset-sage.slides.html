@@ -13479,16 +13479,35 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comparison of the functions with large input</span>
-<span class="n">large_input</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mf">1e10</span><span class="p">)</span>
+<span class="n">large_input</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
 <span class="o">%</span><span class="k">timeit</span> sum([x for x in range(1,large_input) if mod(x,3)==0 or mod(x,5)==0])
 <span class="o">%</span><span class="k">timeit</span> sum_multiples_below(large_input, 3) + sum_multiples_below(large_input, 5) - sum_multiples_below(large_input,15)
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4.39 s ± 22.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+5.49 µs ± 186 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13513,7 +13532,7 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> <span class="k">def</span> <span class="nf">even_fib_sum</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13534,6 +13553,24 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4613732
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13542,7 +13579,9 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 $n$, the 
 $n$-th Fibonacci number, 
 $F(n)$ is defined to be:</p>
-$$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$<p><strong>Claims:</strong></p>
+\begin{equation}
+F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.
+\end{equation}<p><strong>Claims:</strong></p>
 
 </div>
 </div>
@@ -13551,30 +13590,18 @@ $$ F(n) = F(n-1) + F(n-2) \text{ with } F(0) = 0 \text{ and } F(1) = 1.$$<p><str
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
-<li>Every Fibnocci number whose index is a multiple of three is even, and only those are even.</li>
-</ol>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>The sum of <em>even</em> Fibonacci numbers beginning from 
+<li><p>Every Fibnocci number whose index is a multiple of three is even, and only those are even.</p>
+</li>
+<li><p>The sum of <em>even</em> Fibonacci numbers beginning from 
 $F(0)$ up to some 
 $F(n)$ is exactly half of the sum of all the Fibonacci numbers up to 
-$F(n)$</li>
-</ol>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>This sum can be evaluated with $\displaystyle\frac{(F(n+2)-1)} 2$</li>
+$F(n)$</p>
+</li>
+<li><p>This sum can be evaluated with 
+\begin{equation}
+\displaystyle\frac{(F(n+2)-1)} 2
+\end{equation}</p>
+</li>
 </ol>
 
 </div>
@@ -13586,12 +13613,12 @@ $F(n)$</li>
 <p><strong>Proofs:</strong></p>
 <p>Claim 1: <em>Every Fibnocci number whose index is a multiple of three is even, and only those are even.</em></p>
 <p>Base case:</p>
-\begin{align*}
+\begin{align}
 F(1), F(2) \text{ is odd } &amp;\implies F(3) \text{ is even }; \\
 F(2) \text{ is odd and } F(3) \text{ is even } &amp;\implies F(4) \text{ is odd }; \\
 F(3) \text{ is even and }  F(4) \text{ is odd } &amp;\implies F(5) \text{ is odd }; \\
 F(4) \text{ is odd and } F(5) \text{ is odd } &amp;\implies F(6) \text{ is even }.
-\end{align*}<p>Assuming that there exists two odd numbers in the sequence and the following must be even, then the same structure holds, and $$F(n-2), F(n-1)\text{ both odd }\implies F(n)\text{ must be even.}$$ Replacing the indcies of the above statements one will arrive then to the statement: $F(n)$ is even must imply F(n+3) is also even. Since F(3) is even, all index of even Fibnocci numbers are multiples of three. 
+\end{align}<p>Assuming that there exists two odd numbers in the sequence and the following must be even, then the same structure holds, and $$F(n-2), F(n-1)\text{ both odd }\implies F(n)\text{ must be even.}$$ Replacing the indcies of the above statements one will arrive then to the statement: $F(n)$ is even must imply F(n+3) is also even. Since F(3) is even, all index of even Fibnocci numbers are multiples of three. 
 Q.E.D.</p>
 <p>That means we're really just summing up every third Fibnocci number.</p>
 
@@ -13601,16 +13628,16 @@ Q.E.D.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Proofs:</p>
+<p><strong>Proof:</strong></p>
 <p>Claim 2: <em>The sum of even Fibonacci numbers beginning from $F(0)$ up to some $F(n)$ is exactly half of the sum of all the Fibonacci numbers up to $F(n)$</em></p>
-\begin{align*}
+\begin{align}
 \sum_{i=0}^{k} F(3i) &amp;=  F(3) + F(6) + \cdots + F(3k)\\
 &amp;\text{ by subsitution definiton of each term:} \\
 \sum_{i=0}^{k} F(3i) &amp;=  (F(1) + F(2)) + (F(4) + F(5)) + \cdots + (F(3k-2) + F(3k-1))\\ 
 &amp; \text{ add the above two lines } \\
 \implies 2 \sum_{i=0}^{k} F(3i) &amp;= F(1) + F(2) + F(3) + \cdots + F(3k) \\
 \implies \sum_{i=0}^{k} F(3i) &amp;= \frac 1 2 \sum_{i=0}^{3k} F(i) \\ 
-\end{align*}
+\end{align}
 </div>
 </div>
 </div></section><section>
@@ -13618,18 +13645,18 @@ Q.E.D.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Recall a well known lemma on the sum of the first $k$ terms of the Fibnocci sequence is exactly the $k+2$-th Fibnocci number minus one:</p>
-\begin{align*}
+\begin{align}
 \displaystyle\sum_{i=1}^k F(i) &amp;= F(k+2)-1,\\
 \therefore \sum_{i=0}^{k} F(3i) &amp;= \frac 1 2 \sum_{i=0}^{3k} F(i) = \frac{F(3k+2)-1} 2,
-\end{align*}<p>where $3k$ is the index of the largest even Fibonocci number under the defined upperbound. This index $3k$ such that $F(n) &lt; M$ for some upperbound $M$ requires a couple of steps:</p>
+\end{align}<p>where $3k$ is the index of the largest even Fibonocci number under the defined upperbound. This index $3k$ such that $F(n) &lt; M$ for some upperbound $M$ requires a couple of steps:</p>
 <ol>
 <li>Note $F_{3k} \approx \left\lfloor\frac{\Phi^{3k}}{\sqrt{5}}\right\rfloor$</li>
 <li>Thus, Given some $M$, we can estimate $n$ by examining the inverse:
-$$ \begin{align*}
+\begin{align}
 M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
-\implies \ln(\sqrt{5} M) &amp;\approx 3k \ln(\Phi) \\
-\implies \frac{\ln(\sqrt{5} M)}{\ln(\Phi)} &amp;\approx 3k
-\end{align*}$$</li>
+\implies \ln\left(\sqrt{5} M\right) &amp;\approx 3k \ln(\Phi) \\
+\implies \frac{\ln\left(\sqrt{5} M\right)}{\ln(\Phi)} &amp;\approx 3k
+\end{align}</li>
 </ol>
 
 </div>
@@ -13637,7 +13664,7 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">even_fib_sum_quick</span><span class="p">(</span><span class="n">upperbound</span><span class="p">):</span>
@@ -13656,19 +13683,70 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4613732
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comparing the methods with large input</span>
 <span class="n">large_input</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mf">1e100</span><span class="p">)</span>
 <span class="o">%</span><span class="k">timeit</span> even_fib_sum(large_input)
 <span class="o">%</span><span class="k">timeit</span> even_fib_sum_quick(large_input)
+<span class="n">even_fib_sum</span><span class="p">(</span><span class="n">large_input</span><span class="p">)</span> <span class="o">==</span> <span class="n">even_fib_sum_quick</span><span class="p">(</span><span class="n">large_input</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2.72 ms ± 94.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+257 µs ± 13 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13686,7 +13764,7 @@ Prime factorization is already optimized in SAGEmath.</p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> factor(600851475143)
@@ -13694,6 +13772,25 @@ Prime factorization is already optimized in SAGEmath.</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5.24 µs ± 108 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+71 * 839 * 1471 * 6857
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13705,22 +13802,76 @@ Prime factorization is already optimized in SAGEmath.</p>
 <p>Find the largest palindrome made from the product of two 3-digit numbers.</p>
 <p><strong>Remarks</strong>:</p>
 <p>First, we begin with picturing these products a $M \times M$ matrix $\mathbf{P}$, where $M$ is the maximum listed above (999 in this case). 
-$$ P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}$$</p>
+\begin{equation}
+P_{m,n} =  mn \text{ where } m,n \in \mathbb{N}_{\leq M}
+\end{equation}</p>
 <p>So $P_{999,999} = 999^2$, for example. Suppose we fix the sum of the indcies, say $k \in \mathbb{N}$ such that $M + 1 \leq k \leq 2M$.</p>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_largest_palindrome_product</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    List every product</span>
+<span class="sd">    find every palindrome</span>
+<span class="sd">    then return max</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">upper</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">upper</span>
+    <span class="n">palindrome_prod</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">lower</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">prod</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">n</span>
+            <span class="k">if</span> <span class="n">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prod</span><span class="p">))</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">():</span>
+                <span class="n">palindrome_prod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">m</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">upper</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">palindrome_prod</span><span class="p">)</span>
+<span class="n">find_largest_palindrome_product</span><span class="p">()</span>
+</pre></div>
+
+    </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>906609</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Using Sensible Math</strong></p>
 <p>Let's arrange these sets into vectors; the vector $V_k$ as entry at the $j$-th term as:</p>
 $$(V_k)_j = \begin{cases}
 (\frac k 2 - j)(\frac k 2 + j) \text{ for } c = 0, \ldots, M - \frac k 2 &amp; \text{ When $k$ is even} \\
 (\frac{k-1} 2  - j)(\frac {k-1} 2 +1 + j) \text{ for } c = 0, \ldots, M - \frac {k-1} 2&amp; \text{ When $k$ is odd}
 \end{cases} $$<p>Each of these vectors is an arrangement of the products of the form $ab$ for any natural numbers $a,b$ such that $a + b =k$.</p>
 <p>Visually, we're scanning the matrix using an entry along the main diagonal (or one above it when $k$ is odd) as starting points, and iterating over the matrix cells by going "up one, right one" to evaluate each of these products --- this saves time in sorting. This describes the bottom right half of the matrix above the main diagonal. $$ (V_{k})_c \geq (V_{k-2})_c$$ simply because $ab &gt; (a-1)(b-1)$ for positive $a,b$. However, examining the max terms of $V_{k-1}$ and the minimum of $V_{k}$ shows that as $k$ decreases, there will be some point where $V_{k-1}$ and $V_{k}$ begin to contain non decreasing intervals.</p>
-<p>In implementation, this means to be careful when iterating through a matrix in this way, and we have to check for one more vector beyond what we have, since the distribution of palindrome products in this matrix is... too deep for the scope of this practice problem.</p>
+<p>In implementation, this means to be careful when iterating through a matrix in this way, and we have to check for one more vector beyond what we have.</p>
 
 </div>
 </div>
@@ -13743,10 +13894,30 @@ $$
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_largest_palindrome_product</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># FAST</span>
+<span class="k">def</span> <span class="nf">prod_list</span><span class="p">(</span><span class="n">index_sum</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Given some k, go through and list a*b where </span>
+<span class="sd">    a, b in [lower, upper] and</span>
+<span class="sd">    a + b = k</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">prods</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">index_sum</span><span class="p">):</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span><span class="mi">1</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">upper</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">lower</span><span class="p">:</span>
+        <span class="n">prods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">m</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">prods</span>
+
+<span class="k">def</span> <span class="nf">find_largest_palindrome_product_fast</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; </span>
 <span class="sd">    Finds Largest Palindrome formed by the product of two numbers</span>
 <span class="sd">    from the interval [lower, upper]. Returns None if none found.</span>
@@ -13759,33 +13930,49 @@ $$
     <span class="n">m</span> <span class="o">=</span> <span class="n">upper</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">upper</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">m</span><span class="o">+</span><span class="n">n</span>
-    <span class="n">palindrome_prods</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">found_index_sum</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="n">loop_again</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">palindromes</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">upper</span><span class="o">-</span><span class="n">lower</span><span class="p">)):</span>
         <span class="n">index_sum</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">upper</span> <span class="o">-</span> <span class="n">i</span>
-        <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">index_sum</span><span class="p">):</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span>
-            <span class="n">m</span> <span class="o">=</span> <span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span><span class="mi">1</span>
-            <span class="n">m</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">index_sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">upper</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">lower</span><span class="p">:</span>
-            <span class="n">prod</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">n</span>
-            <span class="k">if</span> <span class="n">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prod</span><span class="p">))</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">():</span>
-                <span class="n">palindrome_prods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
-                <span class="n">found_index_sum</span> <span class="o">=</span> <span class="n">index_sum</span>
-                <span class="k">break</span>
-            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">m</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">palindrome_prods</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">found_index_sum</span> <span class="o">&lt;</span> <span class="n">index_sum</span><span class="p">:</span>
+        <span class="c1"># Get a vector as defined in previous slide</span>
+        <span class="n">vector</span> <span class="o">=</span> <span class="n">prod_list</span><span class="p">(</span><span class="n">index_sum</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+        <span class="c1"># Check for palindromes</span>
+        <span class="n">palindromes</span> <span class="o">=</span> <span class="p">[</span><span class="n">prod</span> <span class="k">for</span> <span class="n">prod</span> <span class="ow">in</span> <span class="n">vector</span> <span class="k">if</span> <span class="n">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prod</span><span class="p">))</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">()]</span>
+        <span class="c1">#print(vector,palindromes)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">palindromes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># being safe here, as above, we have to check one more vector</span>
+            <span class="n">vector</span> <span class="o">=</span> <span class="n">prod_list</span><span class="p">(</span><span class="n">index_sum</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+            <span class="n">next_palindromes</span> <span class="o">=</span> <span class="p">[</span><span class="n">prod</span> <span class="k">for</span> <span class="n">prod</span> <span class="ow">in</span> <span class="n">vector</span> <span class="k">if</span> <span class="n">Word</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prod</span><span class="p">))</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">()]</span>
+            <span class="c1"># attaching the new list of palindromes if it exists</span>
+            <span class="n">palindromes</span> <span class="o">+=</span> <span class="n">next_palindromes</span>
             <span class="k">break</span>
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">palindrome_prods</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">palindromes</span><span class="p">])</span>
+
+    
         
-<span class="n">find_largest_palindrome_product</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+<span class="n">find_largest_palindrome_product_fast</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>906609</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13802,7 +13989,7 @@ $$
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> lcm(range(1,21))
@@ -13813,13 +14000,44 @@ $$
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.88 µs ± 35.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>232792560</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Problem-6">Problem 6<a class="anchor-link" href="#Problem-6">&#182;</a></h4><p>The sum of the squares of the first ten natural numbers is 385</p>
-<p>The square of the sum of the first ten natural numbers is 3025</p>
-<p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is .</p>
+<h4 id="Problem-6">Problem 6<a class="anchor-link" href="#Problem-6">&#182;</a></h4><p>The sum of the squares of the first ten natural numbers is 385.</p>
+<p>The square of the sum of the first ten natural numbers is 3025.</p>
+<p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 - 385 = 2640.</p>
 <p>Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.</p>
 
 </div>
@@ -13827,10 +14045,149 @@ $$
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Naive: Literal interpretation:</span>
+<span class="k">def</span> <span class="nf">naive_diff</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">naive_diff</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>25164150</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mathematical Approach:</strong>
+See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-squares-equals-fracnn12n16">proof</a> for the first line.
+\begin{align}
+\sum_{n=1}^k n^2 &amp;= \frac{n(n+1)(2n+1)}{6} \\
+\left( \sum_{n=1}^k n  \right)^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2\\
+\therefore \left( \sum_{n=1}^k n  \right)^2 - \sum_{n=1}^k n^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2 - \frac{n(n+1)(2n+1)}{6} \\
+&amp;= \frac{3n^2(n+1)^2}{12} - \frac{2n(n+1)(2n+1)}{12} \\
+&amp;= \frac{n((n-1)(3n+2))(n+1)}{12}
+\end{align}</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fast_diff</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">upper</span><span class="o">*</span><span class="p">((</span><span class="n">upper</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">upper</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">upper</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">12</span>
+
+<span class="n">fast_diff</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>25164150</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">large_input</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> naive_diff(large_input)
+<span class="o">%</span><span class="k">timeit</span> fast_diff(large_input)
+
+<span class="n">naive_diff</span><span class="p">(</span><span class="n">large_input</span><span class="p">)</span>
+<span class="n">fast_diff</span><span class="p">(</span><span class="n">large_input</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>350 ms ± 4.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+756 ns ± 16.9 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>250000166666416666500000</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)])</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
