@@ -13319,20 +13319,6 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">notebook_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;euler-problemset-sage.ipynb&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13516,8 +13502,8 @@ $$\sum_{i=j}^k a_i =  \frac {n (a_j + a_k)} 2,$$<p></p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4.29 s ± 109 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-5.2 µs ± 57.5 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>4.25 s ± 75.8 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+5.34 µs ± 32.1 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre>
 </div>
 </div>
@@ -13742,8 +13728,8 @@ M \approx \frac{\Phi^{3k}}{\sqrt{5}}\\
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2.41 ms ± 32.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-236 µs ± 3.72 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<pre>2.57 ms ± 115 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+245 µs ± 3.69 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre>
 </div>
 </div>
@@ -13799,7 +13785,7 @@ Prime factorization is already optimized in SAGEmath.</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>5.59 µs ± 239 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>5.53 µs ± 101 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 71 * 839 * 1471 * 6857
 </pre>
 </div>
@@ -14024,7 +14010,7 @@ $$
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2.02 µs ± 52.6 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<pre>1.85 µs ± 20 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre>
 </div>
 </div>
@@ -14100,9 +14086,9 @@ $$
 <p><strong>Mathematical Approach:</strong>
 See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-squares-equals-fracnn12n16">proof</a> for the first line.
 \begin{align}
-\sum_{n=1}^k n^2 &amp;= \frac{n(n+1)(2n+1)}{6} \\
-\left( \sum_{n=1}^k n  \right)^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2\\
-\therefore \left( \sum_{n=1}^k n  \right)^2 - \sum_{n=1}^k n^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2 - \frac{n(n+1)(2n+1)}{6} \\
+\sum_{k=1}^n k^2 &amp;= \frac{n(n+1)(2n+1)}{6} \\
+\left( \sum_{k=1}^n k  \right)^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2\\
+\therefore \left( \sum_{k=1}^k n  \right)^2 - \sum_{n=1}^k n^2 &amp;= \left( \frac { n(n+1)} 2 \right)^2 - \frac{n(n+1)(2n+1)}{6} \\
 &amp;= \frac{3n^2(n+1)^2}{12} - \frac{2n(n+1)(2n+1)}{12} \\
 &amp;= \frac{n((n-1)(3n+2))(n+1)}{12}
 \end{align}</p>
@@ -14173,8 +14159,8 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>3.23 ms ± 18.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-727 ns ± 6.39 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<pre>3.34 ms ± 36.3 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+889 ns ± 6.39 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre>
 </div>
 </div>
@@ -14200,7 +14186,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Problem-7">Problem 7<a class="anchor-link" href="#Problem-7">&#182;</a></h4><p>By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p>
-<p>What is the 10 001st prime number?</p>
+<p>What is the 10,001st prime number?</p>
 
 </div>
 </div>
@@ -14230,7 +14216,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1.08 µs ± 18.6 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<pre>1.17 µs ± 13.9 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre>
 </div>
 </div>
@@ -14251,7 +14237,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div>
 </div>
 
-</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14281,10 +14267,10 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># After coping the input into a textfile in the same directory as the notebook...</span>
@@ -14312,7 +14298,7 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14326,17 +14312,312 @@ See this <a href="https://math.stackexchange.com/questions/48080/sum-of-first-n-
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Problem-9">Problem 9<a class="anchor-link" href="#Problem-9">&#182;</a></h4><p>A Pythagorean triplet is a set of three natural numbers, $a &lt; b &lt; c$, for which,</p>
-$$a^2 + b^2 = c^2$$<p>For example, $32 + 42 = 9 + 16 = 25 = 52$.</p>
-<p>There exists exactly one Pythagorean triplet for which $a + b + c = 1000$.
-Find the product abc.</p>
+$$a^2 + b^2 = c^2$$<p>There exists exactly one Pythagorean triplet for which $a + b + c = 1000$.
+Find the product $abc$.</p>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remarks:</strong>
+Let $k$ be some even integer (our perimeter)
+\begin{align}
+a^2 + b^2 &amp;= (k - (a+b))^2 \\
+a^2 + b^2 &amp;= k^2 - 2k(a+b) + (a+b)^2 \\
+a^2 + b^2 &amp;= k^2 - 2ka -2kb + a^2 +2ab + b^2 \\
+\therefore 0 &amp;= ab - ka - kb + \frac{k^2}{2} \\
+\end{align}</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perimeter</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">clear_vars</span><span class="p">()</span>
+<span class="n">forget</span><span class="p">()</span>
+<span class="n">var</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">assume</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;integer&#39;</span><span class="p">)</span>
+<span class="n">assume</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;integer&#39;</span><span class="p">)</span>
+
+<span class="n">integer_solns</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">1000</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1000</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="mi">500000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
+<span class="n">solns</span> <span class="o">=</span> <span class="p">[(</span><span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">integer_solns</span> <span class="k">if</span> <span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">perimeter</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solns</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">solns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">solns</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">perimeter</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[(200, 375)]
+31875000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-10">Problem 10<a class="anchor-link" href="#Problem-10">&#182;</a></h4><p>The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.</p>
+<p>Find the sum of all the primes below two million.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prime</span> <span class="o">=</span> <span class="n">Primes</span><span class="p">()</span>
+<span class="n">upperbound</span> <span class="o">=</span> <span class="mi">2000000</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">prime</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">upperbound</span><span class="p">:</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="n">prime</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>    
+    <span class="c1"># print(&quot;n=%d,\t\t%d + %d = %d&quot;% (k, ans, new, ans + new))</span>
+    <span class="n">ans</span> <span class="o">+=</span> <span class="n">new</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span> <span class="c1"># 142913828922</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>142913828922
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-12">Problem 12<a class="anchor-link" href="#Problem-12">&#182;</a></h4><p>The sequence of triangle numbers is generated by adding the natural numbers. So the 7th triangle number would be $1 + 2 + 3 + 4 + 5 + 6 + 7 = 28$. The first ten terms would be:</p>
+$$ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ... $$<p>Let us list the factors of the first seven triangle numbers:</p>
+<p>1: 1</p>
+<p>3: 1,3</p>
+<p>6: 1,2,3,6</p>
+<p>10: 1,2,5,10</p>
+<p>15: 1,3,5,15</p>
+<p>21: 1,3,7,21</p>
+<p>28: 1,2,4,7,14,28</p>
+<p>We can see that 28 is the first triangle number to have over five divisors.</p>
+<p>What is the value of the first triangle number to have over five hundred divisors?</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark:</strong>
+Note that this is applying the standard sigma (factor counting) function on triangle numbers. Triangle numbers can be defined explicitly where $T_n = \frac{n(n+1)}2$</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">sigma</span><span class="p">(</span><span class="n">triangle</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> has </span><span class="si">%d</span><span class="s2"> factors: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">triangle</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">sigma</span><span class="p">(</span><span class="n">triangle</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="mi">0</span><span class="p">),</span> <span class="n">divisors</span><span class="p">(</span><span class="n">triangle</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>76576500 has 576 factors: [1, 3, 5, 9, 11, 15, 23, 25, 33, 45, 55, 69, 75, 99, 115, 125, 165, 207, 225, 253, 269, 275, 345, 375, 495, 575, 759, 807, 825, 1035, 1125, 1265, 1345, 1375, 1725, 2277, 2421, 2475, 2875, 2959, 3795, 4035, 4125, 5175, 6187, 6325, 6725, 8625, 8877, 11385, 12105, 12375, 14795, 18561, 18975, 20175, 25875, 26631, 30935, 31625, 33625, 44385, 55683, 56925, 60525, 68057, 73975, 92805, 94875, 100875, 133155, 154675, 204171, 221925, 278415, 284625, 302625, 340285, 369875, 464025, 612513, 665775, 773375, 1020855, 1109625, 1392075, 1701425, 2320125, 3062565, 3328875, 5104275, 6960375, 8507125, 15312825, 25521375, 76564125]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-14">Problem 14<a class="anchor-link" href="#Problem-14">&#182;</a></h4><p>The following iterative sequence is defined for the set of positive integers:</p>
+$$
+a_{n+1}  = \begin{cases}\frac n 2 &amp; n \text{ even} \\
+3n +1 &amp; n \text{ odd} \end{cases}
+$$<p>Using the rule above and starting with 13, we generate the following sequence:</p>
+<p>13, 40 , 20 , 10 , 5 , 16 , 8 , 4 , 2 , 1
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.</p>
+<p>Which starting number, under one million, produces the longest chain?</p>
+<p>NOTE: Once the chain starts the terms are allowed to go above one million.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Problem-100">Problem 100<a class="anchor-link" href="#Problem-100">&#182;</a></h4><p>If a box contains twenty-one coloured discs, composed of fifteen blue discs and six red discs, and two discs were taken at random, it can be seen that the probability of taking two blue discs,</p>
+$$P(BB) = \left(\frac{15}{21}\right)\left(\frac{14}{20}\right) = \frac 1 2.$$<p>The next such arrangement, for which there is exactly 50% chance of taking two blue discs at random, is a box containing eighty-five blue discs and thirty-five red discs.</p>
+<p>By finding the first arrangement to contain over $10^{12} = 1,000,000,000,000$ discs in total, determine the number of blue discs that the box would contain.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">total</span><span class="p">))</span>
+<span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">:</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">blue</span><span class="o">/</span><span class="n">total</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">blue</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">total</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">total</span><span class="p">))</span>
+        <span class="c1"># print((blue/total)*((blue-1)/(total-1)).n(100))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">%d</span><span class="s2"> total, </span><span class="si">%d</span><span class="s2"> blue, </span><span class="si">%d</span><span class="s2"> red&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">total</span><span class="o">-</span><span class="n">blue</span><span class="p">))</span>
+    <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>	21 total, 15 blue, 6 red
+	120 total, 85 blue, 35 red
+	697 total, 493 blue, 204 red
+	4060 total, 2871 blue, 1189 red
+	23661 total, 16731 blue, 6930 red
+	137904 total, 97513 blue, 40391 red
+	803761 total, 568345 blue, 235416 red
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remarks</strong>:
+Note that as $x, t \to \infty$, $\frac{x-1}{t-1} \to \frac{x}{t}$ and so $\frac x t \approx \frac{\sqrt{2}}2$ We could easily write this to test it.</p>
+<p>Note that this question can be translated to finding the integer solution to the Diophantine equation
+\begin{align}
+b(b-1) &amp;= 2a(a-1); \;\; a,b \in \mathbb{Z}
+\end{align}</p>
+<p>OEIS is a wonderful resource for number theory questions, so look there after generating the first few terms... The total is described in this list, where the 16th entry is the total number of chips in the solution. <a href="https://oeis.org/A046090/list">https://oeis.org/A046090/list</a>. Parallel to that, the number of blue chips is described as this list <a href="https://oeis.org/A011900/list">https://oeis.org/A011900/list</a>. Therefore, the solution is 756872327473</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div></div></section></section>
 </div>
 </div>
